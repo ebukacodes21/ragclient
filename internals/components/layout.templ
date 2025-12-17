@@ -1,0 +1,39 @@
+package components
+
+templ Layout(title string) {
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>{title}</title>
+            // <link rel="icon" href="/api/static/logo.jpg" type="image/x-icon" />
+            
+            <!-- Google Font: Poppins -->
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+            
+            <!-- Tailwind CSS config for CDN -->
+            <script id="tailwind-config" type="text/tailwind-config">
+            {
+                "theme": {
+                    "extend": {
+                        "fontFamily": {
+                            "sans": ["Poppins", "ui-sans-serif", "system-ui"]
+                        }
+                    }
+                }
+            }
+            </script>
+            
+            <!-- Tailwind CDN -->
+            <script src="https://cdn.tailwindcss.com"></script>
+        </head>
+
+        <body class="font-sans bg-white text-gray-900">
+            // @Navbar()
+            { children... }
+            // @Footer()
+        </body>
+        <script src="/api/static/index.js"></script>
+    </html>
+}

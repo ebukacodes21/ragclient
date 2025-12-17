@@ -1,0 +1,50 @@
+package pages
+
+import "myclient/internals/components"
+
+templ Home() {
+	@components.Layout("Home - Rafiiki") {
+		<!-- Loading Overlay -->
+		<div id="loading-overlay" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+				<div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+		</div>
+
+		<!-- Hero Section -->
+		<div id="home-content" class="hidden">
+			<section class="relative bg-cover bg-center h-[600px]" style="background-image: url('/api/static/background.jpg');">
+				<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+					<div class="text-center px-4">
+						<h1 class="text-3xl sm:text-5xl font-bold text-white">Your Law Career at your finger tips</h1>
+						<p class="mt-4 text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto">
+							Reach your firm in seconds
+						</p>
+						<div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+							// <a href="/api/quote" class="px-6 py-3 bg-yellow-400 text-gray-900 font-medium rounded shadow hover:bg-yellow-300 transition">
+							// 	Request a Quote
+							// </a>
+							<a href="/api/services" class="px-6 py-3 bg-white text-gray-900 font-medium rounded shadow hover:bg-gray-100 transition">
+								View our Services
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Info Section -->
+			<section class="py-16 bg-white text-center px-4">
+				<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">YOUR TRUSTED MARTIME PARTNER</h2>
+				<p class="max-w-3xl mx-auto text-gray-700 text-lg leading-relaxed">
+					Maritime is a leading provider of global marine and freight services, committed to delivering seamless and cost-effective logistics solutions.
+					With a network spanning continents, we ensure your cargo reaches its destinations safely and on time.
+				</p>
+			</section>
+		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				document.getElementById("loading-overlay").style.display = "none";
+				document.getElementById("home-content").classList.remove("hidden");
+			});
+		</script>
+	}
+}

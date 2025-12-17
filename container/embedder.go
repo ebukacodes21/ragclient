@@ -10,7 +10,14 @@ import (
 	"path/filepath"
 )
 
-func RunEmbeddingContainer(inputFile string) ([]byte, error) {
+type Embedder struct {
+}
+
+func NewEmbedder() *Embedder {
+	return &Embedder{}
+}
+
+func (i *Embedder) RunEmbedder(inputFile string) ([]byte, error) {
 	absPath, err := filepath.EvalSymlinks(inputFile)
 	if err != nil {
 		return nil, fmt.Errorf("invalid input file path: %w", err)
